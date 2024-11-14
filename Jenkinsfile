@@ -12,11 +12,24 @@ pipeline {
                 echo "M398 --version"
             }
         }
-        stage("git clone"){
+        stage("install python"){
             steps{
-                sh 'git clone https://github.com/PRABAKARAN32/jenkins_learn'
-                sh "pwd"
+                sh "sudo apt upadte -y"
+                sh "sudo apt upgrade -y"
+                sh "sudo apt install python3 -y"
             }
+        }
+        stage("Run Python Script"){
+            sh "cd /var/lib/jenkins/workspace/jenkins_learn_master/"
+            sh "python hello.py"
+        }
+        stage(){
+            script{
+                for(int i=0;i<5;i++){
+                    echo "${i+1}"
+                    sleep 1
+                }
+                echo "Python Script Executed Sucessfully....!"
         }
         
         // stage("run python script"){
