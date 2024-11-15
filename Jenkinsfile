@@ -17,7 +17,9 @@ pipeline {
             steps {
                 sh "sudo apt update -y"
                 sh "sudo apt upgrade -y"
+                echo "Python Installing..."
                 sh "sudo apt install python3 -y"
+                echo "Python Installation Completed"
             }
         }
         
